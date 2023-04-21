@@ -13,5 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\PlanesController@getList');
-Route::get('/addList','App\Http\Controllers\PlanesController@addList');
+Route::get('/', 'App\Http\Controllers\PlanesController@getList')->name('admin.show');
+Route::get('/addList','App\Http\Controllers\PlanesController@addList')->name('admin.addList');
+Route::post('/addList','App\Http\Controllers\PlanesController@postList');
+Route::get('/edit/{id}','App\Http\Controllers\PlanesController@getEditList')->name('admin.edit');
+Route::post('/edit/{id}','App\Http\Controllers\PlanesController@updateList')->name('admin.update');
